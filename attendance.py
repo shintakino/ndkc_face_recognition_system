@@ -203,7 +203,7 @@ class Attendance:
             if len(mydata) < 1:
                 messagebox.showerror("No Data", "No Data found to export", parent=self.root)
                 return False
-            fln = filedialog.asksaveasfilename(initialdir=os.getcwd(),title="Save CSV",filetypes=(("CSV File", "*.csv"), ("All Files", "*.*")),parent=self.root)
+            fln = filedialog.asksaveasfilename(initialdir=os.getcwd(), title="Save CSV", defaultextension=".csv", filetypes=(("CSV File", "*.csv"), ("All Files", "*.*")), parent=self.root)
             if fln:
                 with open(fln, mode="w", newline="") as myfile:
                     exp_write = csv.writer(myfile, delimiter=",")
@@ -212,6 +212,7 @@ class Attendance:
                     messagebox.showinfo("Data Export", f"Your data exported to {os.path.basename(fln)} successfully")
         except Exception as es:
             messagebox.showerror("Error", f"Due To: {es}", parent=self.root)
+
             
     def get_cursor(self,event=""):
         cursor_row=self.AttendanceReportTable.focus()
