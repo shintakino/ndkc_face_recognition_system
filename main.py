@@ -21,7 +21,7 @@ class Face_Recognition_System:
         self.root.title("Notre Dame Face Recognition System")
 
         # #Fist Image
-        # img=Image.open(r"C:\Users\PERSONAL\Code\python web framework\FaceRecognitionSystem\college_images\ndkc-leads-logo-3-1.png")
+        # img=Image.open(r"C:\Users\PERSONAL\Code\python web framework\ndkc_face_recognition_system\college_images\ndkc-leads-logo-3-1.png")
         # img=img.resize((500,130),Image.ANTIALIAS)
         # self.photoimg=ImageTk.PhotoImage(img)
         
@@ -37,7 +37,7 @@ class Face_Recognition_System:
         # f_lbl.place(x=500,y=0,width=500,height=130) 
         
         # #Third Image
-        # img2=Image.open(r"C:\Users\PERSONAL\Code\python web framework\FaceRecognitionSystem\college_images\download (1).jpeg")
+        # img2=Image.open(r"C:\Users\PERSONAL\Code\python web framework\ndkc_face_recognition_system\college_images\download (1).jpeg")
         # img2=img2.resize((500,130),Image.ANTIALIAS)
         # self.photoimg2=ImageTk.PhotoImage(img2)
         
@@ -45,7 +45,7 @@ class Face_Recognition_System:
         # f_lbl.place(x=1000,y=0,width=550,height=130) 
 
         #bg Image
-        img3=Image.open(r"C:\Users\PERSONAL\Code\python web framework\FaceRecognitionSystem\college_images\MAIN.jpg")
+        img3=Image.open(r"C:\Users\PERSONAL\Code\python web framework\ndkc_face_recognition_system\college_images\MAIN.jpg")
         img3=img3.resize((1920,1080),Image.ANTIALIAS)
         self.photoimg3=ImageTk.PhotoImage(img3)
         bg_img=Label(self.root,image=self.photoimg3)
@@ -151,7 +151,7 @@ class Face_Recognition_System:
         # b1_1.place(x=1000,y=230,width=170,height=40)
         
         # #Train Face Button
-        # img8=Image.open(r"C:\Users\PERSONAL\Code\python web framework\FaceRecognitionSystem\college_images\FACEEEEEEEEEEEEEE.jpeg")
+        # img8=Image.open(r"C:\Users\PERSONAL\Code\python web framework\ndkc_face_recognition_system\college_images\FACEEEEEEEEEEEEEE.jpeg")
         # img8=img8.resize((170,170),Image.ANTIALIAS)
         # self.photoimg8=ImageTk.PhotoImage(img8)
         
@@ -162,7 +162,7 @@ class Face_Recognition_System:
         # b1_1.place(x=100,y=490,width=170,height=40)
         
         # #Photos Face Button
-        # img9=Image.open(r"C:\Users\PERSONAL\Code\python web framework\FaceRecognitionSystem\college_images\galery.jpeg")
+        # img9=Image.open(r"C:\Users\PERSONAL\Code\python web framework\ndkc_face_recognition_system\college_images\galery.jpeg")
         # img9=img9.resize((170,170),Image.ANTIALIAS)
         # self.photoimg9=ImageTk.PhotoImage(img9)
         
@@ -173,7 +173,7 @@ class Face_Recognition_System:
         # b1_1.place(x=400,y=490,width=170,height=40)
         
         # #Developer Face Button
-        # img10=Image.open(r"C:\Users\PERSONAL\Code\python web framework\FaceRecognitionSystem\college_images\434707364_1121073792542780_2030615925360011263_n.jpg")
+        # img10=Image.open(r"C:\Users\PERSONAL\Code\python web framework\ndkc_face_recognition_system\college_images\434707364_1121073792542780_2030615925360011263_n.jpg")
         # img10=img10.resize((170,170),Image.ANTIALIAS)
         # self.photoimg10=ImageTk.PhotoImage(img10)
         
