@@ -32,7 +32,7 @@ class Student:
         
         
         #Fist Image
-        img=Image.open(r"C:\Users\PERSONAL\Desktop\FaceRecognitionSystem\college_images\face-recognition.png")
+        img=Image.open(r"C:\Users\didoy\OneDrive\Desktop\FaceRecognitionSystem\college_images\face-recognition.png")
         img=img.resize((500,100),Image.ANTIALIAS)
         self.photoimg=ImageTk.PhotoImage(img)
         
@@ -40,7 +40,7 @@ class Student:
         f_lbl.place(x=0,y=0,width=500,height=100)       
 
         #Second Image
-        img1=Image.open(r"C:\Users\PERSONAL\Desktop\FaceRecognitionSystem\college_images\facialrecognition.png")
+        img1=Image.open(r"C:\Users\didoy\OneDrive\Desktop\FaceRecognitionSystem\college_images\facialrecognition.png")
         img1=img1.resize((500,100),Image.ANTIALIAS)
         self.photoimg1=ImageTk.PhotoImage(img1)
         
@@ -48,7 +48,7 @@ class Student:
         f_lbl.place(x=500,y=0,width=500,height=100) 
         
         #Third Image
-        img2=Image.open(r"C:\Users\PERSONAL\Desktop\FaceRecognitionSystem\college_images\u.jpg")
+        img2=Image.open(r"C:\Users\didoy\OneDrive\Desktop\FaceRecognitionSystem\college_images\u.jpg")
         img2=img2.resize((500,100),Image.ANTIALIAS)
         self.photoimg2=ImageTk.PhotoImage(img2)
         
@@ -56,7 +56,7 @@ class Student:
         f_lbl.place(x=1000,y=0,width=550,height=100) 
         
         #bg Image
-        img3=Image.open(r"C:\Users\PERSONAL\Desktop\FaceRecognitionSystem\college_images\bg1.jpg")
+        img3=Image.open(r"C:\Users\didoy\OneDrive\Desktop\FaceRecognitionSystem\college_images\bg1.jpg")
         img3=img3.resize((1530,740),Image.ANTIALIAS)
         self.photoimg3=ImageTk.PhotoImage(img3)
         
@@ -73,7 +73,7 @@ class Student:
         Left_frame = LabelFrame(main_frame,bd=2,bg="white",relief=RIDGE,text="Student Details", font = ("times new roman", 11, "bold"))
         Left_frame.place(x=15,y=5,width=605,height=500)
         
-        img_left=Image.open(r"C:\Users\PERSONAL\Desktop\FaceRecognitionSystem\college_images\AdobeStock_303989091.jpeg")
+        img_left=Image.open(r"C:\Users\didoy\OneDrive\Desktop\FaceRecognitionSystem\college_images\AdobeStock_303989091.jpeg")
         img_left=img_left.resize((595,110),Image.ANTIALIAS)
         self.photoimg_left=ImageTk.PhotoImage(img_left)
         
@@ -230,14 +230,14 @@ class Student:
         take_photo_btn=Button(btn_frame1,command=self.generate_dataset,text="Take Photo Sample",width=32, font = ("times new roman", 11, "bold"),bg="blue",fg="white")
         take_photo_btn.grid(row=1,column=0)
         
-        update_photo_btn=Button(btn_frame1,text="Update Photo Sample",width=32, font = ("times new roman", 11, "bold"),bg="blue",fg="white")
+        update_photo_btn=Button(btn_frame1,command=self.update_photo_sample,text="Update Photo Sample",width=32, font = ("times new roman", 11, "bold"),bg="blue",fg="white")
         update_photo_btn.grid(row=1,column=1)
         
         #Right Label Frame
         Right_frame = LabelFrame(main_frame,bd=2,bg="white",relief=RIDGE,text="Student Details", font = ("times new roman", 11, "bold"))
         Right_frame.place(x=625,y=5,width=605,height=500)
         
-        img_right=Image.open(r"C:\Users\PERSONAL\Desktop\FaceRecognitionSystem\college_images\student.jpg")
+        img_right=Image.open(r"C:\Users\didoy\OneDrive\Desktop\FaceRecognitionSystem\college_images\student.jpg")
         img_right=img_right.resize((595,100),Image.ANTIALIAS)
         self.photoimg_right=ImageTk.PhotoImage(img_right)
         
@@ -251,18 +251,18 @@ class Student:
         search_label = Label(Search_frame,text="Search By:", font = ("times new roman", 13, "bold"),bg="red",fg="white")
         search_label.grid(row=0,column=0,padx=4,pady=3,sticky=W)
         
-        search_combo=ttk.Combobox(Search_frame, font = ("times new roman", 11, "bold"),state="readonly", width=15)
-        search_combo["values"]=("Select","Roll_No","Phone_No")
-        search_combo.current(0)
-        search_combo.grid(row=0,column=1,padx=2,pady=10,sticky=W)
+        self.search_combo=ttk.Combobox(Search_frame, font = ("times new roman", 11, "bold"),state="readonly", width=15)
+        self.search_combo["values"]=("Select","Roll_No","Phone_No")
+        self.search_combo.current(0)
+        self.search_combo.grid(row=0,column=1,padx=2,pady=10,sticky=W)
         
-        search_entry =ttk.Entry(Search_frame,width=18, font = ("times new roman", 11, "bold"))
-        search_entry.grid(row=0,column=2,padx=4,pady=3,sticky=W)
+        self.search_entry =ttk.Entry(Search_frame,width=18, font = ("times new roman", 11, "bold"))
+        self.search_entry.grid(row=0,column=2,padx=4,pady=3,sticky=W)
         
-        search_btn=Button(Search_frame,text="Search",width=11, font = ("times new roman", 10, "bold"),bg="blue",fg="white")
+        search_btn=Button(Search_frame,text="Search",width=11, font = ("times new roman", 10, "bold"),bg="blue",fg="white", command=self.search_data)
         search_btn.grid(row=0,column=3,padx=4)
         
-        showAll_btn=Button(Search_frame,text="Show All",width=11, font = ("times new roman", 10, "bold"),bg="blue",fg="white")
+        showAll_btn=Button(Search_frame,text="Show All",width=11, font = ("times new roman", 10, "bold"),bg="blue",fg="white", command=self.fetch_data)
         showAll_btn.grid(row=0,column=4,padx=4)
         
         #===========Table Frame =============================   
@@ -323,7 +323,7 @@ class Student:
             messagebox.showerror("Error", "All Fields are required",parent=self.root)
         else:
             try:
-                conn=mysql.connector.connect(host="localhost",username="root",password="shintakino",database="face_recognizer")
+                conn=mysql.connector.connect(host="localhost",username="root",password="",database="face_recognizer")
                 my_cursor=conn.cursor()
                 my_cursor.execute("insert into student values (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)",(
                                                                                                             self.var_dep.get(),
@@ -351,7 +351,7 @@ class Student:
                 
             #=========== Fetch Data ============
     def fetch_data(self):
-        conn=mysql.connector.connect(host="localhost",username="root",password="shintakino",database="face_recognizer")
+        conn=mysql.connector.connect(host="localhost",username="root",password="",database="face_recognizer")
         my_cursor=conn.cursor()
         my_cursor.execute("select * from student")
         data=my_cursor.fetchall()
@@ -361,7 +361,37 @@ class Student:
             for i in data:
                 self.student_table.insert("",END, values=i)
                 conn.commit()
+            conn.close()\
+                #=========== Search Data Function============
+    def search_data(self):
+        selected_criteria = self.search_combo.get()
+        search_value = self.search_entry.get()
+
+        try:
+            conn = mysql.connector.connect(host="localhost", username="root", password="", database="face_recognizer")
+            my_cursor = conn.cursor()
+
+            if selected_criteria == "Roll_No":
+                my_cursor.execute("SELECT * FROM student WHERE Roll = %s", (search_value,))
+            elif selected_criteria == "Phone_No":
+                my_cursor.execute("SELECT * FROM student WHERE Phone = %s", (search_value,))
+            else:
+                messagebox.showerror("Error", "Please select a valid search criteria")
+
+            data = my_cursor.fetchall()
+
+            if len(data) != 0:
+                self.student_table.delete(*self.student_table.get_children())
+                for i in data:
+                    self.student_table.insert("", END, values=i)
+                conn.commit()
+            else:
+                messagebox.showinfo("Info", "No records found")
+
             conn.close()
+
+        except Exception as es:
+            messagebox.showerror("Error", f"Due To:{str(es)}", parent=self.root)
             
         #=========== Get Cursor ============
     def get_cursor(self, event=""):
@@ -393,7 +423,7 @@ class Student:
             try:
                 Upadate=messagebox.askyesno("Update", "Do you want to update this student details?", parent=self.root)
                 if Upadate>0:
-                    conn=mysql.connector.connect(host="localhost",username="root",password="shintakino",database="face_recognizer")
+                    conn=mysql.connector.connect(host="localhost",username="root",password="",database="face_recognizer")
                     my_cursor=conn.cursor()
                     my_cursor.execute("update student set Dep=%s,course=%s,Year=%s,Semester=%s,Name=%s,Division=%s,Roll=%s,Gender=%s,Dob=%s,Email=%s,Phone=%s,Address=%s,Professor=%s,PhotoSample=%s where Student_id=%s",(
                         
@@ -432,7 +462,7 @@ class Student:
             try:
                 delete=messagebox.askyesno("Student Delete Page", "Do you want to delete this student",parent=self.root)
                 if delete>0:
-                    conn=mysql.connector.connect(host="localhost",username="root",password="shintakino",database="face_recognizer")
+                    conn=mysql.connector.connect(host="localhost",username="root",password="",database="face_recognizer")
                     my_cursor=conn.cursor()
                     sql="delete from student where Student_id=%s"
                     val=(self.var_std_id.get(),)
@@ -472,7 +502,7 @@ class Student:
             messagebox.showerror("Error", "All Fields are required",parent=self.root)
         else:
             try:
-                conn=mysql.connector.connect(host="localhost",username="root",password="shintakino",database="face_recognizer")
+                conn=mysql.connector.connect(host="localhost",username="root",password="",database="face_recognizer")
                 my_cursor=conn.cursor()
                 my_cursor.execute("select * from student")
                 myresult = my_cursor.fetchall()
@@ -518,7 +548,7 @@ class Student:
                         face_cropped =img[y:y+h,x:x+w]
                         return face_cropped
                     
-                cap=cv2.VideoCapture(0)
+                cap=cv2.VideoCapture(1)
                 img_id=0
                 while True:
                     ret,my_frame=cap.read()
@@ -531,7 +561,7 @@ class Student:
                         cv2.putText(face, str(img_id), (50, 50), cv2.FONT_HERSHEY_COMPLEX, 2, (0, 255, 0), 2)
                         cv2.imshow("Cropped Face", face)
 
-                    if cv2.waitKey(1) == 13 or int(img_id) == 100:
+                    if cv2.waitKey(1) == 13 or int(img_id) == 200:
                         break
                 cap.release()
                 cv2.destroyAllWindows()
@@ -539,7 +569,77 @@ class Student:
             except Exception as es:
                 messagebox.showerror("Error", f"Due To:{str(es)}",parent=self.root) 
                         
+    def update_photo_sample(self):
+        if self.var_dep.get()=="Select Department" or self.var_std_name.get()=="" or self.var_std_id.get()=="":
+            messagebox.showerror("Error", "All Fields are required",parent=self.root)
+        else:
+            try:
+                val=int(self.var_std_id.get(),) 
+                conn=mysql.connector.connect(host="localhost",username="root",password="",database="face_recognizer")
+                my_cursor=conn.cursor()
+                my_cursor.execute("select * from student")
+                myresult = my_cursor.fetchall()
+                id=0
+                for x in myresult:
+                    id=val
+                my_cursor.execute("update student set Dep=%s,course=%s,Year=%s,Semester=%s,Name=%s,Division=%s,Roll=%s,Gender=%s,Dob=%s,Email=%s,Phone=%s,Address=%s,Professor=%s,PhotoSample=%s where Student_id=%s",(
+                        
+                                                                                                            self.var_dep.get(),
+                                                                                                            self.var_course.get(),
+                                                                                                            self.var_year.get(),
+                                                                                                            self.var_semester.get(),
+                                                                                                            self.var_std_name.get(),
+                                                                                                            self.var_div.get(),
+                                                                                                            self.var_roll.get(),
+                                                                                                            self.var_gender.get(),
+                                                                                                            self.var_dob.get(),
+                                                                                                            self.var_email.get(),
+                                                                                                            self.var_phone.get(),
+                                                                                                            self.var_address.get(),
+                                                                                                            self.var_professor.get(),
+                                                                                                            self.var_radio1.get(),
+                                                                                                            self.var_std_id.get()==val                                                                                                       ))
+                conn.commit()
+                self.fetch_data()
+                self.reset_data()
+                conn.close()
                 
+            
+                
+                #=========== Load predefiend data on face frontals from opencv============
+                
+                face_classifier=cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
+                
+                def face_cropped(img):
+                    gray=cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
+                    faces=face_classifier.detectMultiScale(gray,1.3,5)
+                    #Scaling Factor=1.3
+                    #Minimum Neighbor=5
+                    
+                    for(x,y,w,h) in faces:
+                        face_cropped =img[y:y+h,x:x+w]
+                        return face_cropped
+                    
+                cap=cv2.VideoCapture(1)
+                img_id=0
+                while True:
+                    ret,my_frame=cap.read()
+                    if face_cropped(my_frame) is not None:
+                        img_id += 1
+                        face = cv2.resize(face_cropped(my_frame), (450, 450))
+                        face = cv2.cvtColor(face, cv2.COLOR_BGR2GRAY)
+                        file_name_path = "data/user." + str(id) + "." + str(img_id) + ".jpg"
+                        cv2.imwrite(file_name_path, face)
+                        cv2.putText(face, str(img_id), (50, 50), cv2.FONT_HERSHEY_COMPLEX, 2, (0, 255, 0), 2)
+                        cv2.imshow("Cropped Face", face)
+
+                    if cv2.waitKey(1) == 13 or int(img_id) == 200:
+                        break
+                cap.release()
+                cv2.destroyAllWindows()
+                messagebox.showinfo("Result", "Generating data sets complete!!!!")
+            except Exception as es:
+                messagebox.showerror("Error", f"Due To:{str(es)}",parent=self.root)              
     
         
         

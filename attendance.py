@@ -112,14 +112,14 @@ class Attendance:
         atten_date = ttk.Entry(left_inside_frame,width=20,textvariable=self.var_atten_date, font = ("times new roman", 11, "bold"))
         atten_date.grid(row=2,column=3,pady=6)
         
-        #attendance status  
-        attendanceLabel = Label(left_inside_frame,text="Attendance Status:", font = ("times new roman", 11, "bold"),bg="white")
-        attendanceLabel.grid(row=3,column=0)
+        # #attendance status  
+        # attendanceLabel = Label(left_inside_frame,text="Attendance Status:", font = ("times new roman", 11, "bold"),bg="white")
+        # attendanceLabel.grid(row=3,column=0)
         
-        self.atten_status=ttk.Combobox(left_inside_frame,width=18,textvariable=self.var_atten_attendance,font = ("times new roman", 11, "bold"),state="readonly")
-        self.atten_status["values"]=("Status","Present","Absent")
-        self.atten_status.grid(row=3,column=1,pady=6)
-        self.atten_status.current(0)
+        # self.atten_status=ttk.Combobox(left_inside_frame,width=18,textvariable=self.var_atten_attendance,font = ("times new roman", 11, "bold"),state="readonly")
+        # self.atten_status["values"]=("Status","Present","Absent")
+        # self.atten_status.grid(row=3,column=1,pady=6)
+        # self.atten_status.current(0)
         
         #Bbuttons Frame
         btn_frame=Frame(left_inside_frame,bd=2,relief=RIDGE,bg="white")
@@ -149,7 +149,7 @@ class Attendance:
         scroll_x=ttk.Scrollbar(table_frame,orient=HORIZONTAL)
         scroll_y=ttk.Scrollbar(table_frame,orient=VERTICAL)
         
-        self.AttendanceReportTable=ttk.Treeview(table_frame,column=("id","roll","name","department","time","date","attendance"),xscrollcommand=scroll_x.set,yscrollcommand=scroll_y.set)
+        self.AttendanceReportTable=ttk.Treeview(table_frame,column=("id","roll","name","department","time","date"),xscrollcommand=scroll_x.set,yscrollcommand=scroll_y.set)
         
         scroll_x.pack(side=BOTTOM,fill=X)
         scroll_y.pack(side=RIGHT,fill=Y)
@@ -163,7 +163,7 @@ class Attendance:
         self.AttendanceReportTable.heading("department",text="Department")
         self.AttendanceReportTable.heading("time",text="Time")
         self.AttendanceReportTable.heading("date",text="Date")
-        self.AttendanceReportTable.heading("attendance",text="Attendance")
+       
         
         self.AttendanceReportTable["show"]="headings"
         
@@ -173,7 +173,7 @@ class Attendance:
         self.AttendanceReportTable.column("department",width=100)
         self.AttendanceReportTable.column("time",width=100)
         self.AttendanceReportTable.column("date",width=100)
-        self.AttendanceReportTable.column("attendance",width=100)
+        
         
         self.AttendanceReportTable.pack(fill=BOTH,expand=1)
         
@@ -198,21 +198,22 @@ class Attendance:
             self.fetch_Data(mydata)
             
     #Export CSV
+#Export CSV
     def exportCsv(self):
         try:
             if len(mydata) < 1:
                 messagebox.showerror("No Data", "No Data found to export", parent=self.root)
                 return False
-            fln = filedialog.asksaveasfilename(initialdir=os.getcwd(), title="Save CSV", defaultextension=".csv", filetypes=(("CSV File", "*.csv"), ("All Files", "*.*")), parent=self.root)
+            fln = filedialog.asksaveasfilename(initialdir=os.getcwd(), title="Save CSV", defaultextension=".csv", filetypes=(("CSV File", ".csv"), ("All Files", ".*")), parent=self.root)
             if fln:
                 with open(fln, mode="w", newline="") as myfile:
                     exp_write = csv.writer(myfile, delimiter=",")
                     for i in mydata:
                         exp_write.writerow(i)
                     messagebox.showinfo("Data Export", f"Your data exported to {os.path.basename(fln)} successfully")
+                    self.clear_csv_file('vaqjammon.csv')
         except Exception as es:
             messagebox.showerror("Error", f"Due To: {es}", parent=self.root)
-
             
     def get_cursor(self,event=""):
         cursor_row=self.AttendanceReportTable.focus()
@@ -234,8 +235,17 @@ class Attendance:
         self.var_atten_time.set("")
         self.var_atten_date.set("")
         self.var_atten_attendance.set("")
-
+    
         
+    def clear_csv_file(self, file_path):
+        try:
+        # Open the CSV file in write mode (w)
+            with open(file_path, 'w') as csv_file:
+                # Truncate the file to clear its content
+                csv_file.truncate(0)
+            print(f"Data cleared successfully from {file_path}")
+        except Exception as e:
+            print(f"Error occurred: {e}") 
         
         
 if __name__ == "__main__":

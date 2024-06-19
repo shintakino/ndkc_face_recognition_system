@@ -39,7 +39,7 @@ class Train:
     
     def train_classifier(self):
         data_dir=("data")
-        path=[os.path.join(data_dir,file)for file in os.listdir(data_dir)]
+        path = [os.path.join(data_dir, file) for file in sorted(os.listdir(data_dir), key=lambda x: int(x.split('.')[1]))]
         
         faces=[]
         ids=[]
