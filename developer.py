@@ -15,7 +15,7 @@ class Developer:
         title_lbl = Label(self.root, text="DEVELOPERS", font=("Arial", 36, "bold"), bg="green", fg="White")
         title_lbl.place(x=0,y=0,width=1300,height=45)
         
-        img_top=Image.open(r"C:\Users\didoy\OneDrive\Desktop\FaceRecognitionSystem\college_images\sssssssssssssss.jpeg")
+        img_top=Image.open(r"C:\Users\PERSONAL\Code\python web framework\FaceRecognitionSystem\college_images\sssssssssssssss.jpeg")
         img_top=img_top.resize((1275,630),Image.ANTIALIAS)
         self.photoimg_top=ImageTk.PhotoImage(img_top)
         
@@ -26,7 +26,7 @@ class Developer:
         main_frame = Frame(f_lbl, bd=2,bg="white")
         main_frame.place(x=830,y=0,width=425,height=520) 
         
-        img_top1=Image.open(r"C:\Users\didoy\OneDrive\Desktop\FaceRecognitionSystem\college_images\1708415386074211.jpg")
+        img_top1=Image.open(r"C:\Users\PERSONAL\Code\python web framework\FaceRecognitionSystem\college_images\1708415386074211.jpg")
         img_top1=img_top1.resize((200,200),Image.ANTIALIAS)
         self.photoimg_top1=ImageTk.PhotoImage(img_top1)
         

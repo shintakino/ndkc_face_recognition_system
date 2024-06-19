@@ -32,7 +32,7 @@ class Student:
         
         
         #Fist Image
-        img=Image.open(r"C:\Users\didoy\OneDrive\Desktop\FaceRecognitionSystem\college_images\face-recognition.png")
+        img=Image.open(r"C:\Users\PERSONAL\Code\python web framework\FaceRecognitionSystem\college_images\face-recognition.png")
         img=img.resize((500,100),Image.ANTIALIAS)
         self.photoimg=ImageTk.PhotoImage(img)
         
@@ -40,7 +40,7 @@ class Student:
         f_lbl.place(x=0,y=0,width=500,height=100)       
 
         #Second Image
-        img1=Image.open(r"C:\Users\didoy\OneDrive\Desktop\FaceRecognitionSystem\college_images\facialrecognition.png")
+        img1=Image.open(r"C:\Users\PERSONAL\Code\python web framework\FaceRecognitionSystem\college_images\facialrecognition.png")
         img1=img1.resize((500,100),Image.ANTIALIAS)
         self.photoimg1=ImageTk.PhotoImage(img1)
         
@@ -48,7 +48,7 @@ class Student:
         f_lbl.place(x=500,y=0,width=500,height=100) 
         
         #Third Image
-        img2=Image.open(r"C:\Users\didoy\OneDrive\Desktop\FaceRecognitionSystem\college_images\u.jpg")
+        img2=Image.open(r"C:\Users\PERSONAL\Code\python web framework\FaceRecognitionSystem\college_images\u.jpg")
         img2=img2.resize((500,100),Image.ANTIALIAS)
         self.photoimg2=ImageTk.PhotoImage(img2)
         
@@ -56,7 +56,7 @@ class Student:
         f_lbl.place(x=1000,y=0,width=550,height=100) 
         
         #bg Image
-        img3=Image.open(r"C:\Users\didoy\OneDrive\Desktop\FaceRecognitionSystem\college_images\bg1.jpg")
+        img3=Image.open(r"C:\Users\PERSONAL\Code\python web framework\FaceRecognitionSystem\college_images\bg1.jpg")
         img3=img3.resize((1530,740),Image.ANTIALIAS)
         self.photoimg3=ImageTk.PhotoImage(img3)
         
@@ -73,7 +73,7 @@ class Student:
         Left_frame = LabelFrame(main_frame,bd=2,bg="white",relief=RIDGE,text="Student Details", font = ("times new roman", 11, "bold"))
         Left_frame.place(x=15,y=5,width=605,height=500)
         
-        img_left=Image.open(r"C:\Users\didoy\OneDrive\Desktop\FaceRecognitionSystem\college_images\AdobeStock_303989091.jpeg")
+        img_left=Image.open(r"C:\Users\PERSONAL\Code\python web framework\FaceRecognitionSystem\college_images\AdobeStock_303989091.jpeg")
         img_left=img_left.resize((595,110),Image.ANTIALIAS)
         self.photoimg_left=ImageTk.PhotoImage(img_left)
         
@@ -237,7 +237,7 @@ class Student:
         Right_frame = LabelFrame(main_frame,bd=2,bg="white",relief=RIDGE,text="Student Details", font = ("times new roman", 11, "bold"))
         Right_frame.place(x=625,y=5,width=605,height=500)
         
-        img_right=Image.open(r"C:\Users\didoy\OneDrive\Desktop\FaceRecognitionSystem\college_images\student.jpg")
+        img_right=Image.open(r"C:\Users\PERSONAL\Code\python web framework\FaceRecognitionSystem\college_images\student.jpg")
         img_right=img_right.resize((595,100),Image.ANTIALIAS)
         self.photoimg_right=ImageTk.PhotoImage(img_right)
         
