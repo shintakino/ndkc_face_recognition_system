@@ -1,7 +1,3 @@
-Here’s a cleaned-up and well-structured **README.md** for your project. I improved formatting, badges, consistency, and readability while keeping all important details intact:
-
----
-
 # 🎭 NDKC Face Recognition Attendance System
 
 <div align="center">
@@ -243,10 +239,10 @@ This project is licensed under the **MIT License** – see the [LICENSE](LICENSE
 
 ---
 
-## 👨‍💻 Developer Information
+## 👨‍💻 Developer Informations
 
-**Jerwin D. Jamon**
-📧 Email: [didoyjamon18@gmail.com](mailto:didoyjamon18@gmail.com)
+**Joshua Jay N. Javier**
+📧 Email: [joshuajaynarvaza@gmail.com](mailto:joshuajaynarvaza@gmail.com)
 💡 Passionate about programming & creating innovative solutions
 
 ---
@@ -254,7 +250,7 @@ This project is licensed under the **MIT License** – see the [LICENSE](LICENSE
 ## 🆘 Support
 
 * Check `help.py`
-* Email: [didoyjamon18@gmail.com](mailto:didoyjamon18@gmail.com)
+* Email: [joshuajaynarvaza@gmail.com](mailto:joshuajaynarvaza@gmail.com)
 * In-system help documentation
 
 ---
